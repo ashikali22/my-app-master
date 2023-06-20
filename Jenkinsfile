@@ -10,13 +10,13 @@ node{
    }
    
    stage('Build Docker Image'){
-   sh 'docker build -t saidamo/myweb:0.0.2 .'
+   sh 'docker build -t ashikali22/myweb:0.0.2 .'
    }
    stage('Docker Image Push'){
    withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]) {
-   sh "docker login -u saidamo -p ${dockerPassword}"
+   sh "docker login -u ashikali22 -p ${dockerPassword}"
     }
-   sh 'docker push saidamo/myweb:0.0.2'
+   sh 'docker push ashikali22/myweb:0.0.2'
    }
  
    stage('Remove Previous Container'){
