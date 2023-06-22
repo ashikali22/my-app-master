@@ -16,11 +16,7 @@ node {
     }
     stage('Docker Image Push to ECR') {
               registryCredential = """\
-                      <aws>
-                <accessKeyId>AKIAQ6WUHKPK2OKU2TR5</accessKeyId>
-                <secretAccessKey>I+tMOgQ9A/lu56SlIsVVp+K3CJ1yuGkntN+DpwMA</secretAccessKey>
-                <region>YOUR_AWS_REGION</region>
-            </aws>
+                    
         """
         sh 'docker push 065943327701.dkr.ecr.ap-south-1.amazonaws.com/ashikali22/myweb.0.0.2:latest'
     }
