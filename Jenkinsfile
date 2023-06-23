@@ -10,14 +10,12 @@ node {
     }
 
     stage('Build Docker Image') {
-      sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 065943327701.dkr.ecr.ap-south-1.amazonaws.com'
+      sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin xxxxxxxxxx.dkr.ecr.ap-south-1.amazonaws.com'
       sh 'docker build -t ashikali22/myweb.0.0.2 .'
-      sh 'docker tag ashikali22/myweb.0.0.2:latest 065943327701.dkr.ecr.ap-south-1.amazonaws.com/ashikali22/myweb.0.0.2:latest'
+      sh 'docker tag ashikali22/myweb.0.0.2:latest xxxxxxxxxxxxxxxx.dkr.ecr.ap-south-1.amazonaws.com/ashikali22/myweb.0.0.2:latest'
     }
     stage('Docker Image Push to ECR') {
-              registryCredential = """\
-                    
-        """
+   
         sh 'docker push 065943327701.dkr.ecr.ap-south-1.amazonaws.com/ashikali22/myweb.0.0.2:latest'
     }
 
